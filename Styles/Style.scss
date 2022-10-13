@@ -1,0 +1,460 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Vars
+$Barlow: "Barlow", sans-serif;
+$Fraunces: "Fraunces", serif;
+// colors
+$softred: hsl(7, 99%, 70%);
+$yellow: hsl(51, 100%, 49%);
+$DarkdesaturatedCyan: hsl(167, 40%, 24%);
+$Darkblue: hsl(198, 62%, 26%);
+$DarkmoderateCyan: hsl(168, 34%, 41%);
+$VerydarkdesaturatedBlue: hsl(212, 27%, 19%);
+$VerydarkgrayishBlue: hsl(213, 9%, 39%);
+$DarkgrayishBlue: hsl(232, 10%, 55%);
+$GrayishBlue: hsl(210, 4%, 67%);
+$White: hsl(0, 0%, 100%);
+$footer: hsl(167, 41%, 29%);
+
+header {
+  background: url(../images/desktop/image-header.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 80vh;
+  min-width: 100%;
+}
+// Navbar
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  .navLists {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+    font-family: $Barlow;
+    @media screen and (max-width: 500px) {
+      display: none;
+      gap: 2rem;
+      position: absolute;
+      top: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      flex-flow: column;
+      background: $White;
+      width: 85% !important;
+      padding: 2.5rem 0;
+      transition: all 1s ease-in-out;
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: -1.3rem;
+        // margin-top: -1.2rem;
+        border-top: 25px solid transparent;
+        border-right: 40px solid $White;
+        border-bottom: 25px solid transparent;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: $White;
+      @media screen and (max-width: 500px) {
+        color: $DarkgrayishBlue;
+        font-size: 1.2em;
+        font-weight: 900;
+      }
+    }
+    li button {
+      cursor: pointer;
+      background: $White;
+      color: $VerydarkdesaturatedBlue;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      border: none;
+      font-family: $Fraunces;
+      font-size: 1rem;
+      text-transform: uppercase;
+      transition: all 0.2s ease-in-out;
+      @media screen and (max-width: 500px) {
+        background: $yellow;
+      }
+      &:hover {
+        color: $White;
+        background: rgb(111, 207, 255);
+      }
+    }
+  }
+  .hamburger {
+    display: none;
+    @media screen and (max-width: 500px) {
+      display: block;
+    }
+  }
+}
+// Hero
+.Landing-Hero {
+  margin-top: 5rem;
+  padding: 1rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  .hero-text {
+    font-family: $Fraunces;
+    font-size: 3rem;
+    letter-spacing: 5px;
+    color: $White;
+    @media screen and (max-width: 500px) {
+      text-align: center;
+    }
+  }
+}
+
+// Transform
+
+.Transform {
+  display: flex;
+  @media screen and (max-width: 500px) {
+    flex-flow: column-reverse;
+  }
+  .left {
+    flex-basis: 50%;
+    padding: 2rem 5rem;
+    align-self: center;
+    max-width: 100%;
+    margin: 0 auto;
+    @media screen and (max-width: 500px) {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    @media screen and (max-width: 1100px) {
+      padding: 2rem;
+    }
+    .heading {
+      font-family: $Fraunces;
+      font-weight: 900;
+      font-size: 2.5rem;
+    }
+    .caption {
+      width: 30vw;
+      font-family: $Barlow;
+      font-size: 1rem;
+      line-height: 2em;
+      color: $DarkgrayishBlue;
+      margin: 1rem 0;
+      @media screen and (max-width: 1100px) {
+        width: 100%;
+      }
+    }
+    span {
+      cursor: pointer;
+      position: relative;
+      font-family: $Fraunces;
+      font-weight: 900;
+      letter-spacing: 1px;
+      &::after {
+        content: "";
+        position: absolute;
+        // display: none;
+        left: 50%;
+        bottom: -2px;
+        transform: translateX(-50%);
+        width: calc(100% + 20px);
+        height: 10px;
+        border-radius: 50px;
+        background-color: $yellow;
+        opacity: 0.5;
+        z-index: -1;
+        transition: all 0.2s ease-in-out;
+      }
+      &:hover::after {
+        opacity: 1;
+      }
+    }
+  }
+  .right {
+    flex-basis: 50%;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+// StandOut
+
+.StandOut {
+  display: flex;
+  flex-flow: row-reverse;
+  @media screen and (max-width: 500px) {
+    flex-flow: column-reverse;
+  }
+  .left {
+    flex-basis: 50%;
+    padding: 2rem 5rem;
+    align-self: center;
+    max-width: 100%;
+    margin: 0 auto;
+    @media screen and (max-width: 500px) {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    @media screen and (max-width: 1100px) {
+      padding: 2rem;
+    }
+    .heading {
+      font-family: $Fraunces;
+      font-weight: 900;
+      font-size: 2.5rem;
+    }
+    .caption {
+      width: 30vw;
+      font-family: $Barlow;
+      font-size: 1rem;
+      line-height: 2em;
+      color: $DarkgrayishBlue;
+      margin: 1rem 0;
+      @media screen and (max-width: 1100px) {
+        width: 100%;
+      }
+    }
+    span {
+      cursor: pointer;
+      position: relative;
+      font-family: $Fraunces;
+      font-weight: 900;
+      letter-spacing: 1px;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -2px;
+        transform: translateX(-50%);
+        width: calc(100% + 20px);
+        height: 10px;
+        border-radius: 50px;
+        background-color: $softred;
+        opacity: 0.5;
+        z-index: -1;
+        transition: all 0.2s ease-in-out;
+      }
+      &:hover::after {
+        opacity: 1;
+      }
+    }
+  }
+  .right {
+    flex-basis: 50%;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+// Graphics design & Photography
+
+.Graphito {
+  height: 30rem;
+  display: flex;
+  @media screen and (max-width: 500px) {
+    flex-flow: column;
+    height: 100vh;
+  }
+  .graphics {
+    flex-basis: 50%;
+    background: url(../images/desktop/image-graphic-design.jpg) no-repeat;
+    background-position: center top;
+    background-size: cover;
+    padding: 2rem;
+    .display-text {
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-end;
+      text-align: center;
+      padding: 2rem;
+      .heading {
+        font-family: $Fraunces;
+        font-size: 1.8rem;
+        color: $VerydarkdesaturatedBlue;
+      }
+      .caption {
+        max-width: fit-content;
+        font-family: $Barlow;
+        font-size: 1rem;
+        color: $DarkdesaturatedCyan;
+        margin: 1rem 0;
+      }
+    }
+  }
+  .photography {
+    flex-basis: 50%;
+    background: url(../images/desktop/image-photography.jpg) no-repeat;
+    background-position: center top;
+    background-size: cover;
+    padding: 2rem;
+    .display-text {
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-end;
+      text-align: center;
+      padding: 2rem;
+      .heading {
+        font-family: $Fraunces;
+        font-size: 1.8rem;
+        color: $VerydarkdesaturatedBlue;
+      }
+      .caption {
+        font-family: $Barlow;
+        font-size: 1rem;
+        color: $Darkblue;
+        margin: 1rem 0;
+      }
+    }
+  }
+}
+
+// Testimonials
+
+.Testimonials {
+  min-height: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  gap: 5rem;
+  background: $White;
+  padding: 5rem 2rem;
+  .heading {
+    font-size: 1rem;
+    font-family: $Fraunces;
+    letter-spacing: 5px;
+    color: $GrayishBlue;
+  }
+  .clients {
+    display: flex;
+    gap: 1rem;
+    @media screen and (max-width: 500px) {
+      flex-flow: column;
+      gap: 5rem;
+    }
+    .one,
+    .two,
+    .three {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      gap: 2.5rem;
+      @media screen and (max-width: 500px) {
+        gap: 2rem;
+      }
+      .profile-img {
+        height: 5rem;
+        border-radius: 50%;
+      }
+      .text {
+        width: 80%;
+        font-size: 900;
+        font-family: $Barlow;
+        text-align: center;
+        line-height: 1.5em;
+        color: $VerydarkgrayishBlue;
+        @media screen and (max-width: 500px) {
+          width: 100%;
+        }
+      }
+      .profile {
+        text-align: center;
+        .name {
+          font-size: 1rem;
+          font-weight: 900;
+          font-family: $Fraunces;
+          padding-bottom: 0.5rem;
+        }
+        .role {
+          font-size: 0.8rem;
+          font-family: $Barlow;
+          color: $GrayishBlue;
+        }
+      }
+    }
+  }
+}
+
+// Images
+.Images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  @media screen and (max-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-position: center;
+  }
+}
+
+// Footer
+footer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: hsl(168, 38%, 60%);
+  padding: 3rem 2rem;
+  @media screen and (max-width: 500px) {
+    padding: 4rem 0rem;
+  }
+  .brand {
+    path {
+      fill: $footer;
+    }
+  }
+  .navLinks {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+    li a {
+      text-decoration: none;
+      font-family: $Barlow;
+      color: hsl(168, 39%, 36%);
+      &:hover {
+        color: $White;
+      }
+    }
+  }
+  .social-handles {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    svg {
+      cursor: pointer;
+      &:hover {
+        path {
+          fill: $White;
+        }
+      }
+    }
+  }
+}
+
+// utilities
+.active {
+  display: flex !important;
+  top: 7rem !important;
+}
